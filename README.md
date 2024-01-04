@@ -24,25 +24,25 @@
 
 [P10](src/main/scala/list/P10.scala) (*) Run-length encoding of a list.
 
-P11 (*) Modified run-length encoding.
+[P11](src/main/scala/list/P11.scala) (*) Modified run-length encoding.
 
-P12 (**) Decode a run-length encoded list.
+[P12](src/main/scala/list/P12.scala) (**) Decode a run-length encoded list.
 
-P13 (**) Run-length encoding of a list (direct solution).
+[P13](src/main/scala/list/P13.scala) (**) Run-length encoding of a list (direct solution).
 
-P14 (*) Duplicate the elements of a list.
+[P14](src/main/scala/list/P14.scala) (*) Duplicate the elements of a list.
 
-P15 (**) Duplicate the elements of a list a given number of times.
+[P15](src/main/scala/list/P15.scala) (**) Duplicate the elements of a list a given number of times.
 
-P16 (**) Drop every Nth element from a list.
+[P16](src/main/scala/list/P16.scala) (**) Drop every Nth element from a list.
 
-P17 (*) Split a list into two parts.
+[P17](src/main/scala/list/P17.scala) (*) Split a list into two parts.
 
-P18 (**) Extract a slice from a list.
+[P18](src/main/scala/list/P18.scala) (**) Extract a slice from a list.
 
-P19 (**) Rotate a list N places to the left.
+[P19](src/main/scala/list/P19.scala) (**) Rotate a list N places to the left.
 
-P20 (*) Remove the Kth element from a list.
+[P20](src/main/scala/list/P20.scala) (*) Remove the Kth element from a list.
 
 P21 (*) Insert an element at a given position into a list.
 

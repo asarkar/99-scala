@@ -13,4 +13,5 @@ package list
 object P10:
 
   def encode[A](l: List[A]): List[(Int, A)] =
+    // size takes O(n) time on lists.
     P09.pack(l).map(xs => (xs.size, xs.head))
