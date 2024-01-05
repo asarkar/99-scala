@@ -11,8 +11,8 @@ lazy val root = project
     scalafmtPrintDiff := true,
 
     libraryDependencies ++= Seq(
-      "org.scalameta" %% "munit" % "0.7.29" % Test,
-      "org.scalameta" %% "munit-scalacheck" % "0.7.29" % Test
+      "org.scalameta" %% "munit" % "1.0.0-M10" % Test,
+      "org.scalameta" %% "munit-scalacheck" % "1.0.0-M10" % Test
     ),
 
     scalacOptions ++= Seq(

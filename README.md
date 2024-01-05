@@ -44,21 +44,21 @@
 
 [P20](src/main/scala/list/P20.scala) (*) Remove the Kth element from a list.
 
-P21 (*) Insert an element at a given position into a list.
+[P21](src/main/scala/list/P21.scala) (*) Insert an element at a given position into a list.
 
-P22 (*) Create a list containing all integers within a given range.
+[P22](src/main/scala/list/P22.scala) (*) Create a list containing all integers within a given range.
 
-P23 (**) Extract a given number of randomly selected elements from a list.
+[P23](src/main/scala/list/P23.scala) (**) Extract a given number of randomly selected elements from a list.
 
-P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+[P24](src/main/scala/list/P24.scala) (*) Lotto: Draw N different random numbers from the set 1..M.
 
-P25 (*) Generate a random permutation of the elements of a list.
+[P25](src/main/scala/list/P25.scala) (*) Generate a random permutation of the elements of a list.
 
-P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
+[P26](src/main/scala/list/P26.scala) (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
 
-P27 (**) Group the elements of a set into disjoint subsets.
+[P27](src/main/scala/list/P27.scala) (**) Group the elements of a set into disjoint subsets.
 
-P28 (**) Sorting a list of lists according to length of sublists.
+[P28](src/main/scala/list/P28.scala) (**) Sorting a list of lists according to length of sublists.
 
 ## Arithmetic
 

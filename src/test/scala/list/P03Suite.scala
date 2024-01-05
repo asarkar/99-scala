@@ -8,7 +8,7 @@ class P03Suite extends ScalaCheckSuite:
 
   property("nth element of a list"):
     forAllNoShrink(ListGen.genNotEmpty) { (lst: List[Int]) =>
-      val n        = Random.between(0, lst.size)
+      val n        = Random.nextInt(lst.size)
       val obtained = P03.nth(n, lst)
       val expected = lst(n)
       assertEquals(obtained, expected)
