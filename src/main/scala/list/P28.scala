@@ -29,5 +29,5 @@ object P28:
     l.sortBy(_.length)
 
   def lsortFreq[A](l: List[List[A]]): List[List[A]] =
-    val ls = l.map(_.length)
-    l.sortBy(xs => ls.count(_ == xs.length))
+    val ls = l.foldLeft(Map.empty[Int, Int])((acc, xs) => acc.updatedWith(xs.length)(_.map(_ + 1).orElse(Some(1))))
+    l.sortBy(xs => ls(xs.length))

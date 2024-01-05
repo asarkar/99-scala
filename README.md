@@ -62,27 +62,27 @@
 
 ## Arithmetic
 
-P31 (**) Determine whether a given integer number is prime.
+[P31](src/main/scala/arithmetic/P31.scala) (**) Determine whether a given integer number is prime.
 
-P32 (**) Determine the greatest common divisor of two positive integer numbers.
+[P32](src/main/scala/arithmetic/P32.scala) (**) Determine the greatest common divisor of two positive integer numbers.
 
-P33 (*) Determine whether two positive integer numbers are coprime.
+[P33](src/main/scala/arithmetic/P33.scala) (*) Determine whether two positive integer numbers are coprime.
 
-P34 (**) Calculate Euler’s totient function ϕ(m).
+[P34](src/main/scala/arithmetic/P34.scala) (**) Calculate Euler’s totient function ϕ(m).
 
-P35 (**) Determine the prime factors of a given positive integer.
+[P35](src/main/scala/arithmetic/P35.scala) (**) Determine the prime factors of a given positive integer.
 
-P36 (**) Determine the prime factors of a given positive integer (2).
+[P36](src/main/scala/arithmetic/P36.scala) (**) Determine the prime factors of a given positive integer (2).
 
 P37 (**) Calculate Euler’s totient function ϕ(m) (improved).
 
 P38 (*) Compare the two methods of calculating Euler’s totient function.
 
-P39 (*) A list of prime numbers.
+[P39](src/main/scala/arithmetic/P39.scala) (*) A list of prime numbers.
 
-P40 (**) Goldbach's conjecture.
+[P40](src/main/scala/arithmetic/P40.scala) (**) Goldbach's conjecture.
 
-P41 (**) A list of Goldbach compositions.
+[P41](src/main/scala/arithmetic/P41.scala) (**) A list of Goldbach compositions.
 
 ## Logic and Codes
 
