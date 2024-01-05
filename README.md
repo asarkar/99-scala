@@ -86,15 +86,15 @@ P38 (*) Compare the two methods of calculating Euler’s totient function.
 
 ## Logic and Codes
 
-P46 (**) Truth tables for logical expressions.
+[P46](src/main/scala/logic/P46.scala) (**) Truth tables for logical expressions.
 
-P47 (*) Truth tables for logical expressions (2).
+[P47](src/main/scala/logic/P47.scala) (*) Truth tables for logical expressions (2).
 
 P48 (**) Truth tables for logical expressions (3).
 
-P49 (**) Gray code.
+[P49](src/main/scala/logic/P49.scala) (**) Gray code.
 
-P50 (***) Huffman code.
+[P50](src/main/scala/logic/P50.scala) (***) Huffman code.
 
 ## Binary Trees
 
