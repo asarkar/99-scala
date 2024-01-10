@@ -35,7 +35,7 @@ if (( no_test == 0 )); then
   else
     green='\033[1;32m'
     no_color='\033[0m'
-	printf "Running tests in the package: %b%s%b\n" "$green" "$1" "$no_color"
+	printf "Running tests in packages matching: %b%s*%b\n" "$green" "$1" "$no_color"
     sbt -warn "Test / testOnly $1*"
   fi
 fi

@@ -100,15 +100,15 @@ P48 (**) Truth tables for logical expressions (3).
 
 P54 Omitted; our tree representation will only allow well-formed trees.
 
-P55 (**) Construct completely balanced binary trees.
+[P55](src/main/scala/bintree/P55.scala) (**) Construct completely balanced binary trees.
 
-P56 (**) Symmetric binary trees.
+[P56](src/main/scala/bintree/P56.scala) (**) Symmetric binary trees.
 
-P57 (**) Binary search trees (dictionaries).
+[P57](src/main/scala/bintree/P57.scala) (**) Binary search trees (dictionaries).
 
-P58 (**) Generate-and-test paradigm.
+[P58](src/main/scala/bintree/P58.scala) (**) Generate-and-test paradigm.
 
-P59 (**) Construct height-balanced binary trees.
+[P59](src/main/scala/bintree/P59.scala) (**) Construct height-balanced binary trees.
 
 P60 (**) Construct height-balanced binary trees with a given number of nodes.
 

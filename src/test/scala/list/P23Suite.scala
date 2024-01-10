@@ -12,12 +12,12 @@ class P23Suite extends ScalaCheckSuite:
       val k        = lst.size
       val n        = Random.nextInt(k + 1)
       val obtained = P23.randomSelect(n, lst)
-      assert(obtained.size == n && obtained.forall(x => lst.exists(_ == x)))
+      assert(obtained.size == n && obtained.forall(lst.contains))
     }
 
   property("extract n random elements from a list where n >>> list.size"):
     forAllNoShrink(Gen.listOf(ListGen.genInt)) { (lst: List[Int]) =>
       val k        = lst.size
       val obtained = P23.randomSelect(Int.MaxValue, lst)
-      assert(obtained.size == k && obtained.forall(x => lst.exists(_ == x)))
+      assert(obtained.size == k && obtained.forall(lst.contains))
     }

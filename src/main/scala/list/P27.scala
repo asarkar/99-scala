@@ -35,5 +35,5 @@ object P27:
       case n :: next =>
         for
           xs  <- P26.combinations(n, l)
-          xxs <- group(next, l.filterNot(x => xs.exists(_ == x)))
+          xxs <- group(next, l.filterNot(xs.contains))
         yield xs :: xxs
