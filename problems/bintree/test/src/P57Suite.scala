@@ -1,7 +1,6 @@
 package bintree
 
 import munit.FunSuite
-import Tree.*
 import P56.*
 import P57.*
 

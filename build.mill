@@ -1,0 +1,35 @@
+package build
+
+import mill._, scalalib._, scalafmt._
+import $packages._
+import $file.{versions => v}
+
+val moduleNames = interp.watchValue(os.list(millSourcePath / "problems").map(_.last))
+
+object problems extends Cross[NineNineModule](moduleNames)
+
+trait NineNineModule extends ScalaModule with Cross.Module[String] with ScalafmtModule {
+
+  val scalaVersion = v.scalaVersion
+  def millSourcePath = super.millSourcePath / crossValue
+
+  def scalacOptions: T[Seq[String]] = Seq(
+    "-encoding", "UTF-8",
+    "-feature",
+    "-Werror",
+    "-explain",
+    "-deprecation",
+    "-unchecked",
+    "-Wunused:all",
+    "-rewrite",
+    "-indent",
+    "-source", "future",
+  )
+
+  object test extends ScalaTests with TestModule.Munit {
+   def ivyDeps = Agg(
+     ivy"org.scalameta::munit:${v.munitVersion}",
+     ivy"org.scalameta::munit-scalacheck:${v.munitScalaCheckVersion}",
+   )
+  }
+}
