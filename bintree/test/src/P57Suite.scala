@@ -1,8 +1,8 @@
 package bintree
 
 import munit.FunSuite
-import P56.*
-import P57.*
+import bintree.P56.isSymmetric
+import P57.addValue
 
 class P57Suite extends FunSuite:
   test("add an element to a BST"):

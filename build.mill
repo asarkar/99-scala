@@ -3,15 +3,22 @@ package build
 import mill._, scalalib._, scalafmt._
 import $packages._
 import $file.{versions => v}
+import java.nio.file.Files
 
-val moduleNames = interp.watchValue(os.list(millSourcePath / "problems").map(_.last))
+def shouldInclude(p: os.Path) = os.isDir(p) && !Files.isHidden(p.wrapped) && p.last != "out"
 
-object problems extends Cross[NineNineModule](moduleNames)
+def moduleNames = interp.watchValue(
+    os.walk(millSourcePath, !shouldInclude(_), maxDepth = 1)
+      .map(_.last)
+)
+
+object modules extends Cross[NineNineModule](moduleNames)
 
 trait NineNineModule extends ScalaModule with Cross.Module[String] with ScalafmtModule {
 
   val scalaVersion = v.scalaVersion
-  def millSourcePath = super.millSourcePath / crossValue
+  // Ends with 'modules' that need to be removed
+  def millSourcePath = super.millSourcePath / os.up / crossValue
 
   def scalacOptions: T[Seq[String]] = Seq(
     "-encoding", "UTF-8",
