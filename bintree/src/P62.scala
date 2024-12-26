@@ -11,7 +11,11 @@ import Tree.*
 
 object P62:
   extension [A](t: Tree[A])
-    def internalList: List[A] = t match
-      case Empty                    => List.empty
-      case Node(_, Empty, Empty)    => List.empty
-      case Node(value, left, right) => left.internalList ++ (value :: right.internalList)
+    def internalList: List[A] =
+      def loop(tree: Tree[A], leaves: List[A]): List[A] =
+        tree match
+          case Empty                    => leaves
+          case Node(_, Empty, Empty)    => leaves
+          case Node(value, left, right) => loop(left, value :: loop(right, leaves))
+
+      loop(t, Nil)

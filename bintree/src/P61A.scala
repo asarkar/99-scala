@@ -10,7 +10,11 @@ import Tree.*
 
 object P61A:
   extension [A](t: Tree[A])
-    def leafList: List[A] = t match
-      case Empty                     => List.empty
-      case Node(value, Empty, Empty) => List(value)
-      case Node(_, left, right)      => left.leafList ++ right.leafList
+    def leafList: List[A] =
+      def loop(tree: Tree[A], leaves: List[A]): List[A] =
+        tree match
+          case Empty                     => leaves
+          case Node(value, Empty, Empty) => value :: leaves
+          case Node(_, left, right)      => loop(left, loop(right, leaves))
+
+      loop(t, Nil)

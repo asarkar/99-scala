@@ -35,23 +35,31 @@ is yet to be processed.
 object P68:
   extension [A](t: Tree[A])
     def preorder: List[Char] =
-      t match
-        case Empty                    => Nil
-        case Node(value, left, right) => (value.toString().head :: left.preorder) ++ right.preorder
+      def loop(tree: Tree[A], acc: List[Char]): List[Char] =
+        tree match
+          case Empty                    => acc
+          case Node(value, left, right) => value.toString().head :: loop(left, loop(right, acc))
+
+      loop(t, Nil)
 
     def inorder: List[Char] =
-      t match
-        case Empty                    => Nil
-        case Node(value, left, right) => left.inorder ++ (value.toString().head :: right.inorder)
+      def loop(tree: Tree[A], acc: List[Char]): List[Char] =
+        tree match
+          case Empty                    => acc
+          case Node(value, left, right) => loop(left, value.toString().head :: loop(right, acc))
+
+      loop(t, Nil)
 
   def preInTree(pre: List[Char], in: List[Char]): Tree[Char] =
     def loop(pre: List[Char], in: List[Char]): (Tree[Char], List[Char]) =
-      pre match
-        case head :: tail if in.size == 1 => (singleton(head), tail)
-        case head :: tail if in.size > 1 =>
-          val (leftIn, rightIn) = in.span(_ != head)
-          val (left, xs)        = loop(tail, leftIn)
-          val (right, ys)       = loop(xs, rightIn.tail)
+      (pre, in) match
+        case (head :: tail, _ :: Nil)    => (singleton(head), tail)
+        case (head :: tail, _ :: _ :: _) =>
+          // unchecked needed since the pattern match in val is not exhaustive and may fail.
+          // "pattern's type is more specialized than the right hand side expression's type"
+          val (leftIn, (_ :: rightIn)) = (in.span(_ != head): @unchecked)
+          val (left, xs)               = loop(tail, leftIn)
+          val (right, ys)              = loop(xs, rightIn)
           (Node(head, left, right), ys)
         case _ => (Empty, pre)
 

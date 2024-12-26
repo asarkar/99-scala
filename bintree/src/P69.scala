@@ -19,12 +19,12 @@ import Tree.*
 object P69:
   extension [A](t: Tree[A])
     def toDotstring: String =
-      def loop(tree: Tree[A]): DList[Char] =
+      def loop(tree: Tree[A], acc: List[Char]): List[Char] =
         tree match
-          case Empty                    => DList.singleton('.')
-          case Node(value, left, right) => DList.singleton(value.toString().head) ++ loop(left) ++ loop(right)
+          case Empty                    => '.' :: acc
+          case Node(value, left, right) => value.toString().head :: loop(left, loop(right, acc))
 
-      loop(t).toList.mkString
+      loop(t, Nil).mkString
 
   def fromDotstring(s: String): Tree[Char] =
     def loop(t: String): (Tree[Char], String) =

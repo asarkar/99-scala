@@ -12,7 +12,11 @@ import Tree.*
 
 object P62B:
   extension [A](t: Tree[A])
-    def atLevel(level: Int, tree: Tree[A] = t, currLevel: Int = 1): List[A] = tree match
-      case Node(value, _, _) if currLevel == level => List(value)
-      case Node(_, left, right) => atLevel(level, left, currLevel + 1) ++ atLevel(level, right, currLevel + 1)
-      case Empty                => List.empty
+    def atLevel(level: Int): List[A] =
+      def loop(tree: Tree[A], currLevel: Int, acc: List[A]): List[A] =
+        tree match
+          case Node(value, _, _) if currLevel == level => value :: acc
+          case Node(_, left, right)                    => loop(left, currLevel + 1, loop(right, currLevel + 1, acc))
+          case Empty                                   => acc
+
+      loop(t, 1, Nil)
