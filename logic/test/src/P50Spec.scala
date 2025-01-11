@@ -1,10 +1,12 @@
 package logic
 
-import munit.FunSuite
+import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers.shouldBe
 
-class P50Spec extends FunSuite:
+class P50Spec extends AnyFunSpec with ScalaCheckPropertyChecks:
 
-  test("construct Huffman encoding for the given symbols"):
+  it("construct Huffman encoding for the given symbols"):
     val freq = List(
       ("a", 45),
       ("b", 13),
@@ -22,4 +24,4 @@ class P50Spec extends FunSuite:
       ("e", "1101"),
       ("f", "1100")
     )
-    assertEquals(obtained.sorted, expected.sorted)
+    obtained.sorted shouldBe expected.sorted

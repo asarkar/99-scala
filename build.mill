@@ -33,10 +33,10 @@ trait NineNineModule extends ScalaModule with Cross.Module[String] with Scalafmt
     "-source", "future",
   )
 
-  object test extends ScalaTests with TestModule.Munit {
+  object test extends ScalaTests with TestModule.ScalaTest {
    def ivyDeps = Agg(
-     ivy"org.scalameta::munit:${v.munitVersion}",
-     ivy"org.scalameta::munit-scalacheck:${v.munitScalaCheckVersion}",
+     ivy"org.scalatest::scalatest:${v.scalatestVersion}",
+     ivy"org.scalatestplus::scalacheck-1-18:${v.scalacheckVersion}"
    )
   }
 }

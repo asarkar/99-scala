@@ -1,10 +1,12 @@
 package logic
 
-import munit.FunSuite
+import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks
+import org.scalatest.funspec.AnyFunSpec
+import org.scalatest.matchers.should.Matchers.shouldBe
 
-class P49Spec extends FunSuite:
+class P49Spec extends AnyFunSpec with ScalaCheckPropertyChecks:
 
-  test("generate gray codes"):
+  it("generate gray codes"):
     val obtained = P49.gray(3)
     val expected = List(
       "000",
@@ -16,4 +18,4 @@ class P49Spec extends FunSuite:
       "101",
       "100"
     )
-    assertEquals(obtained, expected)
+    obtained shouldBe expected

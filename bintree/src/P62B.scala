@@ -16,7 +16,7 @@ object P62B:
       def loop(tree: Tree[A], currLevel: Int, acc: List[A]): List[A] =
         tree match
           case Node(value, _, _) if currLevel == level => value :: acc
-          case Node(_, left, right)                    => loop(left, currLevel + 1, loop(right, currLevel + 1, acc))
-          case Empty                                   => acc
+          case Node(_, left, right) => loop(left, currLevel + 1, loop(right, currLevel + 1, acc))
+          case Empty                => acc
 
       loop(t, 1, Nil)
