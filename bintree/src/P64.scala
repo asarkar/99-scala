@@ -18,15 +18,14 @@ object P64:
   type AnnotatedTree[A] = Tree[(A, Pos)]
 
   extension [A](t: Tree[A])
-    def layoutBinaryTree: AnnotatedTree[A] =
-      def loop[A](pos: Int, depth: Int, tree: Tree[A]): (AnnotatedTree[A], Int) =
-        tree match
-          case Empty => (Empty, 0)
-          case Node(value, l, r) =>
-            val (left, lSize)  = loop(pos, depth + 1, l)
-            val pos1           = lSize + pos + 1
-            val (right, rSize) = loop(pos1, depth + 1, r)
-            val node           = Node((value, (pos1, depth)), left, right)
-            (node, lSize + rSize + 1)
+    private def loop(pos: Int, depth: Int): (AnnotatedTree[A], Int) =
+      t match
+        case Empty => (Empty, 0)
+        case Node(value, l, r) =>
+          val (left, lSize)  = l.loop(pos, depth + 1)
+          val pos1           = lSize + pos + 1
+          val (right, rSize) = r.loop(pos1, depth + 1)
+          val node           = Node((value, (pos1, depth)), left, right)
+          (node, lSize + rSize + 1)
 
-      loop(0, 1, t)._1
+    def layoutBinaryTree: AnnotatedTree[A] = loop(0, 1)._1

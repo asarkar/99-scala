@@ -37,17 +37,16 @@ object P65:
       case Empty                => -1
       case Node(_, left, right) => 1 + math.max(left.height, right.height)
 
-    def layoutBinaryTree2: AnnotatedTree[A] =
-      def loop[A](pos: Int, depth: Int, height: Int, tree: Tree[A]): (AnnotatedTree[A], Int) =
-        tree match
-          case Empty => (Empty, 0)
-          case Node(value, l, r) =>
-            val d1           = depth + 1
-            val h1           = height / 2
-            val (left, lPos) = loop(pos - height, d1, h1, l)
-            val pos1         = if lPos > 0 then lPos + height else math.max(pos, 1)
-            val (right, _)   = loop(pos1 + height, d1, h1, l)
-            val node         = Node((value, (pos1, depth)), left, right)
-            (node, pos1)
+    private def loop(pos: Int, depth: Int, height: Int): (AnnotatedTree[A], Int) =
+      t match
+        case Empty => (Empty, 0)
+        case Node(value, l, r) =>
+          val d1           = depth + 1
+          val h1           = height / 2
+          val (left, lPos) = l.loop(pos - height, d1, h1)
+          val pos1         = if lPos > 0 then lPos + height else math.max(pos, 1)
+          val (right, _)   = r.loop(pos1 + height, d1, h1)
+          val node         = Node((value, (pos1, depth)), left, right)
+          (node, pos1)
 
-      loop(1, 1, t.height * 2, t)._1
+    def layoutBinaryTree2: AnnotatedTree[A] = loop(1, 1, t.height * 2)._1
