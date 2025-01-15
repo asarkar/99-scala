@@ -1,8 +1,9 @@
 package arithmetic
 
 // P31 (**) Determine whether a given integer number is prime.
-//     scala> 7.isPrime
-//     res0: Boolean = true
+//
+// scala> 7.isPrime
+// res0: Boolean = true
 
 object P31:
   def isPrime(n: Int): Boolean =

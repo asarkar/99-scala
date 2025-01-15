@@ -1,9 +1,13 @@
 package build
 
 import mill._, scalalib._, scalafmt._
+// import $meta._
 import $packages._
 import $file.{versions => v}
 import java.nio.file.Files
+import $ivy.`com.goyeau::mill-scalafix::0.4.2`
+import com.goyeau.mill.scalafix.ScalafixModule
+import mill.scalalib._
 
 def shouldInclude(p: os.Path) = os.isDir(p) && !Files.isHidden(p.wrapped) && p.last != "out"
 
@@ -14,7 +18,7 @@ def moduleNames = interp.watchValue(
 
 object modules extends Cross[NineNineModule](moduleNames)
 
-trait NineNineModule extends ScalaModule with Cross.Module[String] with ScalafmtModule {
+trait NineNineModule extends ScalaModule with Cross.Module[String] with ScalafmtModule with ScalafixModule {
 
   val scalaVersion = v.scalaVersion
   // Ends with 'modules' that need to be removed

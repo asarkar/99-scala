@@ -1,14 +1,14 @@
 package bintree
 
-import Tree.*
+import Tree.{Empty, Node}
 
 // P65 (**) Layout a binary tree (2).
-//     An alternative layout method is depicted in the illustration opposite.
-//     Find out the rules and write the corresponding method.
-//     Hint: On a given level, the horizontal distance between neighboring nodes is constant.
+// An alternative layout method is depicted in the illustration opposite.
+// Find out the rules and write the corresponding method.
+// Hint: On a given level, the horizontal distance between neighboring nodes is constant.
 //
-//     scala> Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree2
-//     res0: PositionedNode[Char] = T[3,1]('a T[1,2]('b . T[2,3]('c . .)) T[5,2]('d . .))
+// scala> Node('a', Node('b', End, Node('c')), Node('d')).layoutBinaryTree2
+// res0: PositionedNode[Char] = T[3,1]('a T[1,2]('b . T[2,3]('c . .)) T[5,2]('d . .))
 /*
 ANSWER: In this problem, no two nodes share the same Y-coordinate.
 Thus, the X-coordinate of a node is determined by the maximum

@@ -45,7 +45,7 @@ object Tree:
                   case _             => singleton(value)
                 (x :: acc._1, rest)
           }
-          .ensuring(_._2.isEmpty, s"unused nodes")
+          .ensuring(_._2.isEmpty, "unused nodes")
           ._1
           .reverse
 

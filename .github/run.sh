@@ -45,8 +45,10 @@ fi
 
 if (( no_lint == 0 )); then
 	if [[ -z "${CI}" ]]; then
+	  ./mill modules[_].__.fix
 	  ./mill mill.scalalib.scalafmt.ScalafmtModule/reformatAll modules[_].__.sources
 	else
+		./mill modules[_].__.fix --check
 		./mill mill.scalalib.scalafmt.ScalafmtModule/checkFormatAll modules[_].__.sources
 	fi
 fi

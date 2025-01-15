@@ -152,23 +152,23 @@ P73 (**) Lisp-like tree representation.
 
 P80 (***) Conversions.
 
-P81 (**) Path from one node to another one.
+[P81](graph/src/P81.scala) (**) Path from one node to another one.
 
-P82 (*) Cycle from a given node.
+[P82](graph/src/P82.scala) (*) Cycle from a given node.
 
-P83 (**) Construct all spanning trees.
+[P83](graph/src/P83.scala) (**) Construct all spanning trees.
 
-P84 (**) Construct the minimal spanning tree.
+[P84](graph/src/P84.scala) (**) Construct the minimal spanning tree.
 
-P85 (**) Graph isomorphism.
+[P85](graph/src/P85.scala) (**) Graph isomorphism.
 
-P86 (**) Node degree and graph coloration.
+[P86](graph/src/P86.scala) (**) Node degree and graph coloration.
 
-P87 (**) Depth-first order graph traversal.
+[P87](graph/src/P87.scala) (**) Depth-first order graph traversal.
 
-P88 (**) Connected components.
+[P88](graph/src/P88.scala) (**) Connected components.
 
-P89 (**) Bipartite graphs.
+[P89](graph/src/P89.scala) (**) Bipartite graphs.
 
 ## Miscellaneous Problems
 
