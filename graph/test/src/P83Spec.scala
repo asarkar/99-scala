@@ -4,10 +4,12 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P83.spanningTrees
 import org.scalactic.Equality
+import graph.Util.given
+import scala.language.implicitConversions
 
 class P83Spec extends AnyFunSpec:
   it("construct all spanning trees"):
-    val data = List(
+    val data: List[(List[Char], List[Edge[Char, Nothing]])] = List(
       (
         List('a', 'b', 'c'),
         List(('a', 'b'), ('b', 'c'), ('a', 'c'))
@@ -30,16 +32,16 @@ class P83Spec extends AnyFunSpec:
       )
     )
 
-    val edgeEq = new Equality[(Char, Char)]:
-      def areEqual(a: (Char, Char), b: Any): Boolean =
+    val edgeEq = new Equality[Edge[Char, Nothing]]:
+      def areEqual(a: Edge[Char, Nothing], b: Any): Boolean =
         if b.isInstanceOf[List[?]] then
           b.asInstanceOf[List[Char]] match
-            case u :: v :: Nil => (u, v) == a || (v, u) == a
+            case u :: v :: Nil => (u, v) == (a.u, a.v) || (v, u) == (a.u, a.v)
             case _             => false
         else false
 
     data.foreach { (vertices, edges) =>
-      val g  = Graph.buildUG(vertices, edges.map((u, v) => Edge(u, v, None)))
+      val g  = Graph.buildUG(vertices, edges)
       val st = g.spanningTrees
       val n  = g.vertices.size
       st.foreach { t =>

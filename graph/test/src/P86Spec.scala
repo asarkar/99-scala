@@ -3,10 +3,12 @@ package graph
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P86.colorNodes
+import graph.Util.given
+import scala.language.implicitConversions
 
 class P86Spec extends AnyFunSpec:
   it("graph coloration"):
-    val data = List(
+    val data: List[(List[Char], List[Edge[Char, Nothing]])] = List(
       (
         ('a' to 'j').toList,
         List(
@@ -50,7 +52,7 @@ class P86Spec extends AnyFunSpec:
     )
 
     data.foreach { (vertices, edges) =>
-      val g      = Graph.buildUG(vertices, edges.map((u, v) => Edge(u, v, None)))
+      val g      = Graph.buildUG(vertices, edges)
       val clrMap = g.colorNodes.toMap
       vertices.foreach { u =>
         g.neighbors(u).map(v => clrMap(v._1)) should not contain (clrMap(u))
