@@ -1,4 +1,4 @@
-package bintree
+package mtree
 
 final case class DList[A](run: List[A] => List[A]):
   // O(1)

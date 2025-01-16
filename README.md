@@ -138,15 +138,15 @@ P66 (***) Layout a binary tree (3).
 
 P70B Omitted; we can only create well-formed trees.
 
-P70C (*) Count the nodes of a multiway tree.
+[P70C](mtree/src/P70C.scala) (*) Count the nodes of a multiway tree.
 
-P70 (**) Tree construction from a node string.
+[P70](mtree/src/P70.scala) (**) Tree construction from a node string.
 
-P71 (*) Determine the internal path length of a tree.
+[P71](mtree/src/P71.scala) (*) Determine the internal path length of a tree.
 
-P72 (*) Construct the postorder sequence of the tree nodes.
+[P72](mtree/src/P72.scala) (*) Construct the postorder sequence of the tree nodes.
 
-P73 (**) Lisp-like tree representation.
+[P73](mtree/src/P73.scala) (**) Lisp-like tree representation.
 
 ## Graphs
 
