@@ -46,6 +46,6 @@ class P83Spec extends AnyFunSpec:
       val n  = g.vertices.size
       st.foreach { t =>
         t.size shouldBe n
-        t.sliding(2).foreach(e => (edges should contain(e))(edgeEq))
+        t.sliding(2).foreach(e => (edges should contain(e))(using edgeEq))
       }
     }

@@ -44,6 +44,6 @@ class P84Spec extends AnyFunSpec:
     data.foreach { (vertices, edges, cost) =>
       val g   = Graph.buildUG(vertices, edges)
       val mst = g.minimalSpanningTree
-      mst.foreach(e => (edges should contain(e))(edgeEq))
+      mst.foreach(e => (edges should contain(e))(using edgeEq))
       mst.foldLeft(0)((s, e) => s + e.data.getOrElse(0)) shouldBe cost
     }

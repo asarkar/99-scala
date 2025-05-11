@@ -182,7 +182,7 @@ P93 (***) An arithmetic puzzle.
 
 P94 (***) Generate K-regular simple graphs with N nodes.
 
-P95 (**) English number words.
+[P95](misc/src/P95.scala) (**) English number words.
 
 P96 (**) Syntax checker.
 

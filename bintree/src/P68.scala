@@ -38,7 +38,7 @@ object P68:
       def loop(tree: Tree[A], acc: List[Char]): List[Char] =
         tree match
           case Empty                    => acc
-          case Node(value, left, right) => value.toString().head :: loop(left, loop(right, acc))
+          case Node(value, left, right) => value.toString.head :: loop(left, loop(right, acc))
 
       loop(t, Nil)
 
@@ -46,7 +46,7 @@ object P68:
       def loop(tree: Tree[A], acc: List[Char]): List[Char] =
         tree match
           case Empty                    => acc
-          case Node(value, left, right) => loop(left, value.toString().head :: loop(right, acc))
+          case Node(value, left, right) => loop(left, value.toString.head :: loop(right, acc))
 
       loop(t, Nil)
 

@@ -21,7 +21,7 @@ object P67:
   def toString[A](tree: Tree[A]): String =
     tree match
       case Empty                     => ""
-      case Node(value, Empty, Empty) => value.toString()
+      case Node(value, Empty, Empty) => value.toString
       case Node(value, left, right)  => s"$value(${P67.toString(left)},${P67.toString(right)})"
 
   def fromString(s: String): Tree[Char] =

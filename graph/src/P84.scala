@@ -1,7 +1,6 @@
 package graph
 
-import scala.collection.mutable.PriorityQueue
-import scala.collection.mutable.Set as MutableSet
+import scala.collection.mutable
 
 // P84 (**) Construct the minimal spanning tree.
 //
@@ -31,14 +30,16 @@ object P84:
       if g.size == 0 then Nil
       else
         // Default is a max queue.
-        val q     = PriorityQueue[Edge[A, B]]()(Ordering.by[Edge[A, B], Option[B]](_._3).reverse)
+        val q = mutable.PriorityQueue[Edge[A, B]]()(using
+          Ordering.by[Edge[A, B], Option[B]](_._3).reverse
+        )
         val start = g.edges.head.u
         q.enqueue(toEdges(start, g.neighbors(start))*)
-        val visited = MutableSet(start)
+        val visited = mutable.Set(start)
 
         val xs = List.unfold(()):
           case _ if q.isEmpty => None
-          case x =>
+          case _ =>
             val e = q.dequeue()
             if visited.contains(e.v) then Some((None, ()))
             else

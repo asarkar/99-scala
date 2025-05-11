@@ -14,6 +14,6 @@ object P81:
     def findPaths(u: A, v: A): List[List[A]] =
       search(
         u,
-        expand = (visited, x) => g.neighbors(x).map(_._1).filterNot(visited.contains),
-        isDone = (visited, x) => x == v
+        expand = (visited, x) => g.neighbors(x).map(_._1).diff(visited),
+        isDone = (_, x) => x == v
       )

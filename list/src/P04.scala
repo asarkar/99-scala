@@ -7,5 +7,5 @@ package list
 
 object P04:
   def length[A](l: List[A]): Int = l match
-    case x :: tail => 1 + length(tail)
+    case _ :: tail => 1 + length(tail)
     case Nil       => 0

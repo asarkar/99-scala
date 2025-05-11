@@ -1,11 +1,10 @@
 package build
 
 import mill._, scalalib._, scalafmt._
-// import $meta._
 import $packages._
 import $file.{versions => v}
 import java.nio.file.Files
-import $ivy.`com.goyeau::mill-scalafix::0.4.2`
+import $ivy.`com.goyeau::mill-scalafix::0.5.1`
 import com.goyeau.mill.scalafix.ScalafixModule
 import mill.scalalib._
 
