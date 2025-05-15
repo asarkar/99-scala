@@ -31,9 +31,10 @@ trait NineNineModule extends ScalaModule with Cross.Module[String] with Scalafmt
     "-deprecation",
     "-unchecked",
     "-Wunused:all",
-    "-rewrite",
     "-indent",
-    "-source", "future",
+    "-rewrite",
+    "-source",
+    "future",
   )
 
   object test extends ScalaTests with TestModule.ScalaTest {

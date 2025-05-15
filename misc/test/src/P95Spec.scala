@@ -1,3 +1,5 @@
+package misc
+
 import misc.P95
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe

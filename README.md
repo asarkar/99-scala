@@ -174,7 +174,7 @@ P80 (***) Conversions.
 
 P90 (**) Eight queens problem
 
-P91 (**) Knight’s tour.
+[P91](misc/src/P91.scala) (**) Knight’s tour.
 
 P92 (***) Von Koch’s conjecture.
 
