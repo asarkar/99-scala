@@ -176,7 +176,7 @@ P90 (**) Eight queens problem
 
 [P91](misc/src/P91.scala) (**) Knight’s tour.
 
-P92 (***) Von Koch’s conjecture.
+[P92](misc/src/P92.scala) (***) Von Koch’s conjecture.
 
 P93 (***) An arithmetic puzzle.
 

@@ -3,6 +3,7 @@ package graph
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P87.nodesByDepthFrom
+import org.scalatest.Inspectors.forAll
 
 class P87Spec extends AnyFunSpec:
   it("depth-first order graph traversal"):
@@ -19,7 +20,7 @@ class P87Spec extends AnyFunSpec:
       )
     )
 
-    data.foreach { (s, u, expected) =>
+    forAll(data) { (s, u, expected) =>
       val g = Graph.fromString(s)
       g.nodesByDepthFrom(u) shouldBe expected
     }

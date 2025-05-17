@@ -1,7 +1,8 @@
 package bintree
 
-import scala.language.implicitConversions
+import org.scalatest.Inspectors.forAll
 
+import scala.language.implicitConversions
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 
@@ -22,7 +23,7 @@ class P67Spec extends AnyFunSpec:
       ('a', 'b', 'c', 'd', 'e', None, 'f', None, None, None, None, 'g')
     )
 
-    data.foreach { xs =>
+    forAll(data) { xs =>
       val tree     = Tree.fromArray(xs)
       val s        = P67.toString(tree)
       val obtained = P67.fromString(s)

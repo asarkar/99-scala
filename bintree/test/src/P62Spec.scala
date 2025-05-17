@@ -2,7 +2,7 @@ package bintree
 
 import scala.language.implicitConversions
 import P62.internalList
-
+import org.scalatest.Inspectors.forAll
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 
@@ -12,7 +12,7 @@ class P62Spec extends AnyFunSpec:
       (('a', 'b'), List('a')),
       (('a', 'b', 'c', None, None, 'd', 'e'), List('a', 'c'))
     )
-    data.foreach { (xs, expected) =>
+    forAll(data) { (xs, expected) =>
       val obtained = Tree.fromArray(xs).internalList
       obtained shouldBe expected
     }

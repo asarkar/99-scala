@@ -5,6 +5,8 @@ import org.scalatest.matchers.should.Matchers.*
 import P84.minimalSpanningTree
 import org.scalactic.Equality
 import graph.Util.given
+import org.scalatest.Inspectors.forAll
+
 import scala.language.implicitConversions
 
 class P84Spec extends AnyFunSpec:
@@ -41,9 +43,9 @@ class P84Spec extends AnyFunSpec:
             case Edge(u, v, _) => (u, v) == (a.u, a.v) || (v, u) == (a.u, a.v)
         else false
 
-    data.foreach { (vertices, edges, cost) =>
+    forAll(data) { (vertices, edges, cost) =>
       val g   = Graph.buildUG(vertices, edges)
       val mst = g.minimalSpanningTree
-      mst.foreach(e => (edges should contain(e))(using edgeEq))
+      forAll(mst)(e => (edges should contain(e))(using edgeEq))
       mst.foldLeft(0)((s, e) => s + e.data.getOrElse(0)) shouldBe cost
     }
