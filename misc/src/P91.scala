@@ -14,6 +14,10 @@ package misc
 //
 // Can you find only "closed tours", where the knight can jump from its final position back to its
 // starting position?
+
+/*
+ANSWER: Backtracking with Warnsdorff's heuristic.
+ */
 object P91:
   private type Square = (x: Int, y: Int)
   private val moves: LazyList[Square] = LazyList(
@@ -37,6 +41,7 @@ object P91:
   def allKnightsTours(n: Int): LazyList[List[Square]] =
     allSquares(n)
       .map(knightsTour(n, Map.empty, _))
+      .filter(_.size == n * n)
 
   private def knightsTour(n: Int, visited: Map[Square, Int], curr: Square): List[Square] =
     // To find a closed tour, also check if the next moves contain the start square.
@@ -49,7 +54,11 @@ object P91:
        */
       val vs = visited + (curr -> (visited.size + 1))
       nextMoves(n, vs, curr)
-        .sortBy(mv => nextMoves(n, vs, mv).size) // Warnsdorff's heuristic
+        /*
+        Warnsdorff's heuristic: Visit the cell with the fewest next moves.
+        Doing so visits the edge squares first before moving to the center squares.
+         */
+        .sortBy(mv => nextMoves(n, vs, mv).size)
         .map(nxt => knightsTour(n, vs, nxt))
         .find(_.size == n * n)
         .getOrElse(List.empty)

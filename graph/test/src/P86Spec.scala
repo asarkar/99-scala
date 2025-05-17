@@ -4,6 +4,8 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P86.colorNodes
 import graph.Util.given
+import org.scalatest.Inspectors.forAll
+
 import scala.language.implicitConversions
 
 class P86Spec extends AnyFunSpec:
@@ -51,10 +53,10 @@ class P86Spec extends AnyFunSpec:
       )
     )
 
-    data.foreach { (vertices, edges) =>
+    forAll(data) { (vertices, edges) =>
       val g      = Graph.buildUG(vertices, edges)
       val clrMap = g.colorNodes.toMap
-      vertices.foreach { u =>
+      forAll(vertices) { u =>
         g.neighbors(u).map(v => clrMap(v._1)) should not contain (clrMap(u))
       }
     }

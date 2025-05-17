@@ -3,6 +3,8 @@ package graph
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 import P81.findPaths
+import org.scalatest.Inspectors.forAll
+
 import scala.math.Ordering.Implicits.seqOrdering
 
 class P81Spec extends AnyFunSpec:
@@ -12,7 +14,7 @@ class P81Spec extends AnyFunSpec:
       ("[p>q/9, m>q/7, k, p>m/5]", "p", "k", Nil)
     )
 
-    data.foreach { (s, u, v, expected) =>
+    forAll(data) { (s, u, v, expected) =>
       val g = Graph.fromString(s)
       g.findPaths(u, v).sorted shouldBe expected
     }

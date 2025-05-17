@@ -3,6 +3,7 @@ package graph
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P89.isBipartite
+import org.scalatest.Inspectors.forAll
 
 class P89Spec extends AnyFunSpec:
   it("bipartite graphs"):
@@ -13,7 +14,7 @@ class P89Spec extends AnyFunSpec:
       ("[a-b, b-c, d, e-f, f-g, g-e, h]", false)
     )
 
-    data.foreach { (s, expected) =>
+    forAll(data) { (s, expected) =>
       val g = if s.contains(">") then Graph.fromStringLabel(s) else Graph.fromString(s)
       g.isBipartite shouldBe expected
     }

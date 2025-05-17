@@ -1,7 +1,8 @@
 package bintree
 
-import scala.language.implicitConversions
+import org.scalatest.Inspectors.forAll
 
+import scala.language.implicitConversions
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 
@@ -28,7 +29,7 @@ class TreeSpec extends AnyFunSpec:
       (10, 5, 15, 3, 7, 13, 18, 1, None, 6),
       (3, 5, 1, 6, 2, 0, 8, None, None, 7, 4)
     )
-    data.foreach { nums =>
+    forAll(data) { nums =>
       val tree     = Tree.fromArray(nums)
       val obtained = tree.levelOrder.toArray
       val result = nums

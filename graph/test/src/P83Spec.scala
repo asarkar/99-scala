@@ -5,6 +5,8 @@ import org.scalatest.matchers.should.Matchers.*
 import P83.spanningTrees
 import org.scalactic.Equality
 import graph.Util.given
+import org.scalatest.Inspectors.forAll
+
 import scala.language.implicitConversions
 
 class P83Spec extends AnyFunSpec:
@@ -40,11 +42,11 @@ class P83Spec extends AnyFunSpec:
             case _             => false
         else false
 
-    data.foreach { (vertices, edges) =>
+    forAll(data) { (vertices, edges) =>
       val g  = Graph.buildUG(vertices, edges)
       val st = g.spanningTrees
       val n  = g.vertices.size
-      st.foreach { t =>
+      forAll(st) { t =>
         t.size shouldBe n
         t.sliding(2).foreach(e => (edges should contain(e))(using edgeEq))
       }

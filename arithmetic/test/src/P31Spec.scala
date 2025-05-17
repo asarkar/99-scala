@@ -2,6 +2,7 @@ package arithmetic
 
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
+import org.scalatest.Inspectors.forAll
 
 class P31Spec extends AnyFunSpec:
 
@@ -16,6 +17,6 @@ class P31Spec extends AnyFunSpec:
       (7, true),
       (11, true)
     )
-    data.foreach { (n, prime) =>
+    forAll(data) { (n, prime) =>
       P31.isPrime(n) shouldBe prime
     }

@@ -1,7 +1,8 @@
 package bintree
 
-import scala.language.implicitConversions
+import org.scalatest.Inspectors.forAll
 
+import scala.language.implicitConversions
 import org.scalatest.funspec.AnyFunSpec
 
 class P55Spec extends AnyFunSpec:
@@ -21,7 +22,7 @@ class P55Spec extends AnyFunSpec:
         )
       )
     )
-    data.foreach { (n, expected) =>
+    forAll(data) { (n, expected) =>
       val obtained = P55.cBalanced(n, 'x')
       assertSameTrees(obtained, expected)
     }

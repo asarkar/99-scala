@@ -2,7 +2,7 @@ package bintree
 
 import scala.language.implicitConversions
 import bintree.P56.isSymmetric
-
+import org.scalatest.Inspectors.forAll
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 
@@ -13,7 +13,7 @@ class P56Spec extends AnyFunSpec:
       (true, ('a', 'b', 'c'))
     )
 
-    data.foreach { (symmetric, xs) =>
+    forAll(data) { (symmetric, xs) =>
       val tree = Tree.fromArray(xs)
       tree.isSymmetric shouldBe symmetric
     }

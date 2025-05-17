@@ -3,6 +3,7 @@ package graph
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.*
 import P88.splitGraph
+import org.scalatest.Inspectors.forAll
 
 class P88Spec extends AnyFunSpec:
   it("connected components"):
@@ -13,7 +14,7 @@ class P88Spec extends AnyFunSpec:
       )
     )
 
-    data.foreach { (s, expected) =>
+    forAll(data) { (s, expected) =>
       val g = Graph.fromString(s)
       g.splitGraph shouldBe expected
     }

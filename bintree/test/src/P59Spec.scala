@@ -1,7 +1,8 @@
 package bintree
 
-import scala.language.implicitConversions
+import org.scalatest.Inspectors.forAll
 
+import scala.language.implicitConversions
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers.shouldBe
 
@@ -14,6 +15,6 @@ class P59Spec extends AnyFunSpec:
       ('x', 'x', 'x', None, None, 'x', 'x'),
       ('x', 'x', 'x', None, 'x')
     )
-    expected.foreach { xs =>
+    forAll(expected) { xs =>
       obtained.contains(Tree.fromArray(xs)) shouldBe true
     }
