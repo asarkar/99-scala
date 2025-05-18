@@ -2,7 +2,7 @@
 
 [![](https://github.com/asarkar/99-scala/workflows/CI/badge.svg)](https://github.com/asarkar/99-scala/actions)
 
-## Working with lists
+## Lists
 
 [P01](list/src/P01.scala) (*) Find the last element of a list.
 
